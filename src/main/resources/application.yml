@@ -1,0 +1,26 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  application:
+    name: demo
+  datasource:
+    url: jdbc:h2:file:./data/telegram-bot
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+tg:
+  bot:
+    token: 8526170372:AAFsZL5knqCgRdx78ziYBdc-kQg_JTo2JB4
+  chat:
+    id: 153318601
+
+railway:
+  xsrf:
+    token: 783fd7d7-d725-4d9f-b670-65f09dec3301
+  cookie: _ga=GA1.1...; other cookies...
