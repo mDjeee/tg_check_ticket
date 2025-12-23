@@ -4,6 +4,7 @@ import com.example.demo.entity.ChatStateEntity;
 import com.example.demo.repository.ChatStateRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,7 @@ public class TelegramBotService {
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final ExecutorService executor = Executors.newCachedThreadPool();
 
+    @Value("${tg.bot.token}")
     private final String tgBotToken = "8526170372:AAFsZL5knqCgRdx78ziYBdc-kQg_JTo2JB4";
     private long lastUpdateId = 0;
 

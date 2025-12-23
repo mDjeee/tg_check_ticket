@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/telegram-bot-prod
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update
+tg:
+  bot:
+    token: 8526170372:AAFsZL5knqCgRdx78ziYBdc-kQg_JTo2JB4
+  chat:
+    id: 153318601

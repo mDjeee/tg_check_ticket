@@ -30,7 +30,6 @@ public class TicketCheckService {
     private static final String API_URL = "https://e-ticket.railway.uz/api/v3/trains/availability/space/between/stations";
 
     private final String tgBotToken = "8526170372:AAFsZL5knqCgRdx78ziYBdc-kQg_JTo2JB4";
-    private final String tgChatId = "153318601";
 
     public void runForChat(long chatId, String fromDate, String toDate) throws Exception {
         List<String> dates = generateDateRange(fromDate, toDate);
@@ -126,7 +125,7 @@ public class TicketCheckService {
         }
     }
 
-    private void sendTelegramMessage(String message, long tgChatId) {
+    private void sendTelegramMessage(String message, long chatId) {
         try {
             String url = String.format("https://api.telegram.org/bot%s/sendMessage", tgBotToken);
             HttpHeaders headers = new HttpHeaders();
@@ -134,7 +133,7 @@ public class TicketCheckService {
 
             String payload = String.format("""
                     {"chat_id":"%s","text":"%s"}
-                    """, tgChatId, message);
+                    """, chatId, message);
 
             HttpEntity<String> entity = new HttpEntity<>(payload, headers);
             restTemplate.postForEntity(url, entity, String.class);
